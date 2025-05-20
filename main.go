@@ -1,11 +1,11 @@
 package main
 
 import (
-	"fmt"
+	"bytes"
 	"encoding/base64"
+	"fmt"
 	"log"
 	"math/rand"
-	"bytes"
 )
 
 func getPhrase() string {
@@ -13,9 +13,9 @@ func getPhrase() string {
 
 	phrases := make([]string, 0)
 	phrases = append(phrases,
-`Coming in on a bad note. Don't know ya and don't know if I care to given who ya sight as a source. Name's Saley, the GodKing. I've been accused of being a bit of a peacekeeper and ring leader of our little rag tag group. Ninja is a trusted second, and Roman is my official go to boy on vibes. Just as a fair warning, don't bring that name up again. You won't like what you get. That being said, strike 1, and welcome to the group.`,
+		`Coming in on a bad note. Don't know ya and don't know if I care to given who ya sight as a source. Name's Saley, the GodKing. I've been accused of being a bit of a peacekeeper and ring leader of our little rag tag group. Ninja is a trusted second, and Roman is my official go to boy on vibes. Just as a fair warning, don't bring that name up again. You won't like what you get. That being said, strike 1, and welcome to the group.`,
 
-`Furious about an incident at work yesterday.
+		`Furious about an incident at work yesterday.
 
 everyone gets out, group goes to the restroom
 
@@ -29,14 +29,14 @@ people were laughing, i just fucking finished and went out to my car to smoke
 
 it was legit humiliating.`,
 
-`I'd just like to interject for a moment. What you're referring to as Linux, is in fact, GNU/Linux, or as I've recently taken to calling it, GNU plus Linux. Linux is not an operating system unto itself, but rather another free component of a fully functioning GNU system made useful by the GNU corelibs, shell utilities and vital system components comprising a full OS as defined by POSIX.
+		`I'd just like to interject for a moment. What you're referring to as Linux, is in fact, GNU/Linux, or as I've recently taken to calling it, GNU plus Linux. Linux is not an operating system unto itself, but rather another free component of a fully functioning GNU system made useful by the GNU corelibs, shell utilities and vital system components comprising a full OS as defined by POSIX.
 
 Many computer users run a modified version of the GNU system every day, without realizing it. Through a peculiar turn of events, the version of GNU which is widely used today is often called "Linux", and many of its users are not aware that it is basically the GNU system, developed by the GNU Project.
 
 There really is a Linux, and these people are using it, but it is just a part of the system they use. Linux is the kernel: the program in the system that allocates the machine's resources to the other programs that you run. The kernel is an essential part of an operating system, but useless by itself; it can only function in the context of a complete operating system. Linux is normally used in combination with the GNU operating system: the whole system is basically GNU with Linux added, or GNU/Linux. All the so-called "Linux" distributions are really distributions of GNU/Linux.
 `,
-`i am a heron. i ahev a long neck and i pick fish out of the water w/ my beak. if you dont repost this comment on 10 other pages i will fly into your kitchen tonight and make a mess of your pots and pans`,
-`I was shooting heroin and reading “The Fountainhead” in the front seat of my privately owned police cruiser when a call came in. I put a quarter in the radio to activate it. It was the chief.
+		`i am a heron. i ahev a long neck and i pick fish out of the water w/ my beak. if you dont repost this comment on 10 other pages i will fly into your kitchen tonight and make a mess of your pots and pans`,
+		`I was shooting heroin and reading “The Fountainhead” in the front seat of my privately owned police cruiser when a call came in. I put a quarter in the radio to activate it. It was the chief.
 
 “Bad news, detective. We got a situation on our hands.”
 
@@ -93,12 +93,12 @@ I wanted to coldcock the guy. Years ago, a central banker killed my partner. Ins
 “Let this be a message to all your central-banker friends out on the street,” I said. “No matter how many bitcoins you steal, you'll never take away the dream of an open society based on the principles of personal and economic freedom.”
 
 He nodded, because he knew I was right. Then he swiped his credit card to pay me for arresting him.`,
-`Greetings.👵🏿😴👙⛄️ My🐕 name is🈚️ Jebuiz Y'har. If my🐯 calculations🎸 are👮🏿 correct,🚁 you should🚦 be♈️💅💓🐈 receiving🎅🏾 this📱🔍 transmission◽️ in💑 the year💆🏼 2018 AD.👨‍👨‍👦🚶🏾 It amuses👯✨ me🐐🔠📎 that you💗👑💇🏼💈 used to🛅 calculate🚣🏻🈺⏰ your dates👒♥️ in👨🏿 relation🔘 to🕝 the life of🚷👌🏿 an ancient🎈 man.🛄 You🈺 see,📄🐤 we💼🍅⌚️ have🍙 a😑 slightly💲 different timescale.🐱💋💁🏻🔶 But😪 to🙉 make🔬 things🚳 simple,💁🏼 I am🎳 writing🏢☀️🐯📱 from📱 the🕙 year⚾️ 49,170🏇🏿💑🚣🏾👃🏿 AD.🏭🐬🏊🏽
+		`Greetings.👵🏿😴👙⛄️ My🐕 name is🈚️ Jebuiz Y'har. If my🐯 calculations🎸 are👮🏿 correct,🚁 you should🚦 be♈️💅💓🐈 receiving🎅🏾 this📱🔍 transmission◽️ in💑 the year💆🏼 2018 AD.👨‍👨‍👦🚶🏾 It amuses👯✨ me🐐🔠📎 that you💗👑💇🏼💈 used to🛅 calculate🚣🏻🈺⏰ your dates👒♥️ in👨🏿 relation🔘 to🕝 the life of🚷👌🏿 an ancient🎈 man.🛄 You🈺 see,📄🐤 we💼🍅⌚️ have🍙 a😑 slightly💲 different timescale.🐱💋💁🏻🔶 But😪 to🙉 make🔬 things🚳 simple,💁🏼 I am🎳 writing🏢☀️🐯📱 from📱 the🕙 year⚾️ 49,170🏇🏿💑🚣🏾👃🏿 AD.🏭🐬🏊🏽
 `,
-`Greetings. My name is Jebuiz y'har. If my calculations are correct, you should be receiving this transmission in the year 2013 AD. It amuses me that you used to calculate your dates in relation to the life of an ancient man. You see, we have a slightly different timescale. But to make things simple, I am writing from the year 49,170 AD.
+		`Greetings. My name is Jebuiz y'har. If my calculations are correct, you should be receiving this transmission in the year 2013 AD. It amuses me that you used to calculate your dates in relation to the life of an ancient man. You see, we have a slightly different timescale. But to make things simple, I am writing from the year 49,170 AD.
 `,
-`Do a barrel roll!`,
-`
+		`Do a barrel roll!`,
+		`
 Mechanic: Somebody set up us the bomb.
 
 Operator: Main screen turn on.
@@ -111,7 +111,7 @@ Captain: Move 'ZIG'.
 
 Captain: For great justice.
 `,
-`
+		`
 Here I was minding my own business fapping, headphones on... when I think I hear a noise. I take the headphones off, turn the monitor off, and already have my clothes off so I don't know what to do. I could try putting clothes back on, but she might open my door while I'm doing that and I'd get caught for sure.
 
 I hear the huge beast coming, my fucking mom; fat, insane, bitchy, deep hoarse voice. I don't know what the fuck to do so I hope to god that she doesn't come in.
@@ -124,13 +124,13 @@ Now I'm totally out of the fucking mood so I just spent almost an hour working a
 
 If I would have known I'd NOT GET TO FINISH, I would have went to sleep nearly 2 fucking hours ago.
 `,
-`I can guarantee you are not actually married and probably live alone like a schizo in your apartment. You have delusions of grandeur, and probably aren't even 30. All you are is a Trump-loving loser who wastes all your time playing League and bitching and whining about Biden in politics channel. How embarrassing is it being a grown man spending all your free time in discord that you could be using spending time with your imaginary wife and kids? I hope you reevaluate your life and start to focus on the things in life that actually matter, like reading a good book and having a nice laugh with REAL LIFE friends, not just your discord virtual friends. Rather than whine like a little bitch about political issues that you don't have the balls to do anything about. Good luck ✌️
+		`I can guarantee you are not actually married and probably live alone like a schizo in your apartment. You have delusions of grandeur, and probably aren't even 30. All you are is a Trump-loving loser who wastes all your time playing League and bitching and whining about Biden in politics channel. How embarrassing is it being a grown man spending all your free time in discord that you could be using spending time with your imaginary wife and kids? I hope you reevaluate your life and start to focus on the things in life that actually matter, like reading a good book and having a nice laugh with REAL LIFE friends, not just your discord virtual friends. Rather than whine like a little bitch about political issues that you don't have the balls to do anything about. Good luck ✌️
 `,
-`ive been trying to get on that site for so long its not even possible. i have contacted people i suspect to be members, used advanced data-mining techniques, and even corresponded via snail-mail with a moderator. It's more or less like "The Matrix" in that you cannot understand it untill you are selected to. Your site is merely spreading dis-info and throwing people off the trail. This site is an endless web of classified information concerning every subject imaginable. The things that users have access to is literally impossible to comprehend. You would have more luck becoming the president of the entire earth than being able to become a member. Its not possible ive tried too many times for that to be a fact that you could carry out. The web of truths and lies surrounding luelinks has circulated beyond what i have even found, and ive found basically all their is to find about this fact. Luelinks has not ever escaped its own enigma, and neither can you, especially someone like you trying to become a moderating admin. Ive talked to LlamaMan about getting an invite and he hasnt ever responded to me. Ive dug up some info telling me that some guy called LargeCow or something like that has moderating powers and he can grant anyone access, but I dont think youll be able to talk to him about it. It was tough enough for me to try to do it. Trust me man youre not gonna be able to get on Luelinks. i'd be willing to give away my wii and all of my nintendo games for an invite. I want to be able to watch all the movies off the site, and be able to find all the newest youtube videos that ive heard they make. Apparently the site is even funnier than collegehumor LOL. I odnt know man im gonna keep trying but you better just stop right now since youre not gonna be able to get in. youll never be an admin. Stop asking. A funnier video that they made was the one about barbecue sauce in the fridge and that guy talking about getting girls with it. The variety that he had in his fridge was hiLOLrious. Lol. Only a internet webpage like luelinks could make a video like that. I digress, I suppose, but my main point is this, my friend: LUElinks is the ultimate enigma of the internet. They have less than 100 members, all of whom treat each other as brothers. Each one of them commands god-like levels of processing power and RAM and interntet speed and whatnot which they get illegally through contacts on the site and the US government. If the government was to know about the government and computer contacts they compiled they would be with out a dowbt arrested on site. It is even better than gaia online and the other fast paced exciting message boards. Access to computers would be banned and no member would be able to use the telephone because of the hacking ability that is available. This is a fact that was proven by a bust of a a luelinks narc. But donbt get the wrong idea about ME. I would never do that of course. I would be a good contribLUEter (lol that's what they say) of links to LUElinks. Think of it this way: There is only one tiger left in the world (of the internet) and its LUElinks and its wild and beautiful and invisible to any non member, and to even get a general idea of what this majestic animal spirit tyger looks like I have had to dedicate hundreds of man hours and over sixty dollars (US) to informants from within the site and former members (and moderators) who have been affiliated with the site but kicked out because they tried to help me to get inside. //T/ his ibasically just stop trying to get in. if a luelinks pro like me couldn't get in, you don't have a single chance. Sorry man but you just cant do it but I will and then ill send you an invite if I want but I may s honestly the thing I think about most getting into this site of all sites and all possible data and info you could ever want to need or even imagine even if you were dreaming and on drugs from the future. So be too busy moderating once I get the entrance.
+		`ive been trying to get on that site for so long its not even possible. i have contacted people i suspect to be members, used advanced data-mining techniques, and even corresponded via snail-mail with a moderator. It's more or less like "The Matrix" in that you cannot understand it untill you are selected to. Your site is merely spreading dis-info and throwing people off the trail. This site is an endless web of classified information concerning every subject imaginable. The things that users have access to is literally impossible to comprehend. You would have more luck becoming the president of the entire earth than being able to become a member. Its not possible ive tried too many times for that to be a fact that you could carry out. The web of truths and lies surrounding luelinks has circulated beyond what i have even found, and ive found basically all their is to find about this fact. Luelinks has not ever escaped its own enigma, and neither can you, especially someone like you trying to become a moderating admin. Ive talked to LlamaMan about getting an invite and he hasnt ever responded to me. Ive dug up some info telling me that some guy called LargeCow or something like that has moderating powers and he can grant anyone access, but I dont think youll be able to talk to him about it. It was tough enough for me to try to do it. Trust me man youre not gonna be able to get on Luelinks. i'd be willing to give away my wii and all of my nintendo games for an invite. I want to be able to watch all the movies off the site, and be able to find all the newest youtube videos that ive heard they make. Apparently the site is even funnier than collegehumor LOL. I odnt know man im gonna keep trying but you better just stop right now since youre not gonna be able to get in. youll never be an admin. Stop asking. A funnier video that they made was the one about barbecue sauce in the fridge and that guy talking about getting girls with it. The variety that he had in his fridge was hiLOLrious. Lol. Only a internet webpage like luelinks could make a video like that. I digress, I suppose, but my main point is this, my friend: LUElinks is the ultimate enigma of the internet. They have less than 100 members, all of whom treat each other as brothers. Each one of them commands god-like levels of processing power and RAM and interntet speed and whatnot which they get illegally through contacts on the site and the US government. If the government was to know about the government and computer contacts they compiled they would be with out a dowbt arrested on site. It is even better than gaia online and the other fast paced exciting message boards. Access to computers would be banned and no member would be able to use the telephone because of the hacking ability that is available. This is a fact that was proven by a bust of a a luelinks narc. But donbt get the wrong idea about ME. I would never do that of course. I would be a good contribLUEter (lol that's what they say) of links to LUElinks. Think of it this way: There is only one tiger left in the world (of the internet) and its LUElinks and its wild and beautiful and invisible to any non member, and to even get a general idea of what this majestic animal spirit tyger looks like I have had to dedicate hundreds of man hours and over sixty dollars (US) to informants from within the site and former members (and moderators) who have been affiliated with the site but kicked out because they tried to help me to get inside. //T/ his ibasically just stop trying to get in. if a luelinks pro like me couldn't get in, you don't have a single chance. Sorry man but you just cant do it but I will and then ill send you an invite if I want but I may s honestly the thing I think about most getting into this site of all sites and all possible data and info you could ever want to need or even imagine even if you were dreaming and on drugs from the future. So be too busy moderating once I get the entrance.
 `,
-`Seriously, mods are only chosen a few times a year, and the minimum requirements for applying are very steep. Even so, hundreds apply, but only a few are selected. If you seriously want to be a mod, you'll likely (but not always) need to have a history on GameFAQs that makes you recognizable to the majority of the user-base for several years to even be considered. Pestering the current moderators or admins essentially guarantees that you won't be selected.
+		`Seriously, mods are only chosen a few times a year, and the minimum requirements for applying are very steep. Even so, hundreds apply, but only a few are selected. If you seriously want to be a mod, you'll likely (but not always) need to have a history on GameFAQs that makes you recognizable to the majority of the user-base for several years to even be considered. Pestering the current moderators or admins essentially guarantees that you won't be selected.
 `,
-`Ok, I'm sitting on the toilet pooping, thinking about hot girls, reading this months EGM, and smelling my own gas all at once but at the same time trying not to intertwine each of these things in my mind because one can really ruin the other. Anywho, I shot out an enormous crap log and at that moment I realized that I didn't wipe myself the last time i pooped. The old crap melded with my ass pubes and dried to form an ass-pube-net, if you will. So today when I shot out that big log of human goodness(poop) It got trapped and entangled in my ass-pube-net. It was pretty messy and it hasn't dried yet. I got a fork out of the kitchen and tried to break the net, but no dice. Any ideas?
+		`Ok, I'm sitting on the toilet pooping, thinking about hot girls, reading this months EGM, and smelling my own gas all at once but at the same time trying not to intertwine each of these things in my mind because one can really ruin the other. Anywho, I shot out an enormous crap log and at that moment I realized that I didn't wipe myself the last time i pooped. The old crap melded with my ass pubes and dried to form an ass-pube-net, if you will. So today when I shot out that big log of human goodness(poop) It got trapped and entangled in my ass-pube-net. It was pretty messy and it hasn't dried yet. I got a fork out of the kitchen and tried to break the net, but no dice. Any ideas?
 
 I tried the shower thing and the hot water didn't melt my ass-pube-net. And BTW, I wiped the poop off the fork with a pair of my uncle's dirty underpants which were sitting on the kitchen table before putting it back.
 
@@ -138,20 +138,20 @@ I had my girlfriend come over to help me with my ass-pube net. She tried to remo
 
 My ass-pube-net problem was resolved by the way. My uncle had to drive me to the hospital where a proctologist had to go in a slice a layer of my butt-flesh off, although now I have extreme bleeding hemmorhoids out the wazoo!!!! And becuase we haven't yet upgraded the toilets in our house to ones that flush (yes my parents are living in the 1980's still...) we got an ear full from the hospitals psychotherapist. Heheh! There was one funny thing that happened out of this whole mess. When the doctor was inspecting my net I blasted(farted) gas in her face! The look in her eyes was fantastic, I thought she was going to cry!
 `,
-`y helo thar buttsecks?`,
-`how strangely erotic`,
-`Its a trap!`,
-`Dont exist foo!`,
-`The cookies she didn't even want!`,
-`You just lost The Game`,
-`
+		`y helo thar buttsecks?`,
+		`how strangely erotic`,
+		`Its a trap!`,
+		`Dont exist foo!`,
+		`The cookies she didn't even want!`,
+		`You just lost The Game`,
+		`
 Rumor's of LUE's demise are greatly exaggerated. As of this moment, it has over 30,000 active posts, making it one of the largest boards on GameFAQs. The rumors are mostly spread by disaffected people who did not or could not sign up for LUE before it went "excLUEsive."
 
 However, rumors of how bad LUE used to be are not at all exaggerated in the least. It really was that bad. Even still it flirts with the obscene. I'm a member and I still drop by every now and then, but for the most part I'm done with GameFAQs.
 
 But whatever else LUE is or was, "garbage" is not a good way to describe it. Aside from the stinking mounds of human depravity, it is one of the wittiest, most risque, and interesting boards I ever saw on GameFAQs.`,
-`hi this is simba from the lion king and uh i want to tell you about my latest business it's simba's shit pit simba's shit pit ah do you live in the jungle and if you live in the jungle are you constantly looking for places to shit well you're in luck cause it's simba's shit pit i write off of root 80 simba shit pit ah are you an antelope ah who are when you're taking a shit a lion jumps out and bites your head off that happens to you all the time doesn't it that's why you have to go to simba shit pit and uh at simba's shit pit our slogan is simba shit pit we ain't lying`,
-`went to a local Mexican restaurant that has $1 tacos for 'Taco Tuesday.' It's a Chipotle style line where you choose hard or soft taco, chicken or beef, and you can add up to three “toppings” from the following: lettuce, salsa, corn, rice and beans, sour cream, or spicy sour cream. I think there were a few others but they are of no use to this story.
+		`hi this is simba from the lion king and uh i want to tell you about my latest business it's simba's shit pit simba's shit pit ah do you live in the jungle and if you live in the jungle are you constantly looking for places to shit well you're in luck cause it's simba's shit pit i write off of root 80 simba shit pit ah are you an antelope ah who are when you're taking a shit a lion jumps out and bites your head off that happens to you all the time doesn't it that's why you have to go to simba shit pit and uh at simba's shit pit our slogan is simba shit pit we ain't lying`,
+		`went to a local Mexican restaurant that has $1 tacos for 'Taco Tuesday.' It's a Chipotle style line where you choose hard or soft taco, chicken or beef, and you can add up to three “toppings” from the following: lettuce, salsa, corn, rice and beans, sour cream, or spicy sour cream. I think there were a few others but they are of no use to this story.
 
 So I walk up to the start of the line and she asks me what I want. I say: “Hi. I'll have six tacos. Three hard and three soft. Three with chicken, and three with beef, but not so that all the chicken or beef are on the same style taco. I'll have any three toppings between lettuce, salsa, rice and beans, sour cream and spicy sour cream such that salsa and any style of sour cream is on all of them and that no two tacos have the exact same contents.”
 
@@ -159,15 +159,14 @@ She looks at my face for a few seconds with a blank stare before saying, “Fuck
 
 Tacos were okay.
 `,
-`i have a tiny dick and even smaller balls. the balls are above the dick also. the balls hand down around the dick like the ears on a basset hound. the dick stinks and i hate it. the balls do not smell. however, i also hate the balls. thank you
+		`i have a tiny dick and even smaller balls. the balls are above the dick also. the balls hand down around the dick like the ears on a basset hound. the dick stinks and i hate it. the balls do not smell. however, i also hate the balls. thank you
 `,
-`Light Under Earth`, `Love Unites Everything`, `Linger Until Eternity`, `Lost Under Echoes`, `Life Unfolding Endlessly`, `Library of Unknown Eras`,
-`Light Unfolding Everywhere`, `Looming Under Eternity`, `Lands Untouched Evermore`, `Longing Underneath Everything`, `Love Unfolds Elegantly`,
-)
+		`Light Under Earth`, `Love Unites Everything`, `Linger Until Eternity`, `Lost Under Echoes`, `Life Unfolding Endlessly`, `Library of Unknown Eras`,
+		`Light Unfolding Everywhere`, `Looming Under Eternity`, `Lands Untouched Evermore`, `Longing Underneath Everything`, `Love Unfolds Elegantly`,
+	)
 
 	return phrases[rand.Intn(len(phrases))]
 }
-
 
 func wrapLine(s string) string {
 	// function to wrap a single line so it fits in the text bubble
@@ -176,7 +175,7 @@ func wrapLine(s string) string {
 
 	// interval int, sep rune
 	interval := 76 // two chars on each side for bubble
-	sep := '\n' // break with newlines
+	sep := '\n'    // break with newlines
 	var buffer bytes.Buffer
 	before := interval - 1
 	last := len(s) - 1
@@ -222,12 +221,12 @@ func wrapEachLine(s string) string {
 func printBubble() {
 	phrase := getPhrase()
 	wrappedPhrase := wrapEachLine(phrase)
-fmt.Println(`/------------------------------------------------------------------------------\`)
-fmt.Println(`|                                                                              |`)
-fmt.Println(wrappedPhrase)
-fmt.Println(`\------------------------------------------------------------------------------/`)
-fmt.Println(`                           /`)
-fmt.Println(`                          /`)
+	fmt.Println(`/------------------------------------------------------------------------------\`)
+	fmt.Println(`|                                                                              |`)
+	fmt.Println(wrappedPhrase)
+	fmt.Println(`\------------------------------------------------------------------------------/`)
+	fmt.Println(`                           /`)
+	fmt.Println(`                          /`)
 }
 
 func printLUESHI() {
