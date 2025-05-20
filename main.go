@@ -36,61 +36,61 @@ Many computer users run a modified version of the GNU system every day, without 
 There really is a Linux, and these people are using it, but it is just a part of the system they use. Linux is the kernel: the program in the system that allocates the machine's resources to the other programs that you run. The kernel is an essential part of an operating system, but useless by itself; it can only function in the context of a complete operating system. Linux is normally used in combination with the GNU operating system: the whole system is basically GNU with Linux added, or GNU/Linux. All the so-called "Linux" distributions are really distributions of GNU/Linux.
 `,
 		`i am a heron. i ahev a long neck and i pick fish out of the water w/ my beak. if you dont repost this comment on 10 other pages i will fly into your kitchen tonight and make a mess of your pots and pans`,
-		`I was shooting heroin and reading “The Fountainhead” in the front seat of my privately owned police cruiser when a call came in. I put a quarter in the radio to activate it. It was the chief.
+		`I was shooting heroin and reading "The Fountainhead" in the front seat of my privately owned police cruiser when a call came in. I put a quarter in the radio to activate it. It was the chief.
 
-“Bad news, detective. We got a situation on our hands.”
+"Bad news, detective. We got a situation on our hands."
 
-“What? Is the mayor trying to ban trans fats again?”
+"What? Is the mayor trying to ban trans fats again?"
 
-“Worse. Somebody just stole four hundred and forty-seven million dollars' worth of bitcoins.”
+"Worse. Somebody just stole four hundred and forty-seven million dollars' worth of bitcoins."
 
-The heroin needle practically fell out of my arm. “What kind of monster would do something like that? Bitcoins are the ultimate currency: virtual, anonymous, stateless. They represent true economic freedom, not subject to arbitrary manipulation by any government. Do we have any leads?”
+The heroin needle practically fell out of my arm. "What kind of monster would do something like that? Bitcoins are the ultimate currency: virtual, anonymous, stateless. They represent true economic freedom, not subject to arbitrary manipulation by any government. Do we have any leads?"
 
-“Not yet. But mark my words: we're going to figure out who did this and we're going to take them down … provided someone pays us a fair market rate to do so.”
+"Not yet. But mark my words: we're going to figure out who did this and we're going to take them down … provided someone pays us a fair market rate to do so."
 
-“Easy, chief,” I said. “Any rate the market offers is, by definition, fair.”
+"Easy, chief," I said. "Any rate the market offers is, by definition, fair."
 
-He laughed. “That's why you're the best I got, Lisowski. Now you get out there and find those bitcoins.”
+He laughed. "That's why you're the best I got, Lisowski. Now you get out there and find those bitcoins."
 
-“Don't worry,” I said. “I'm on it.”
+"Don't worry," I said. "I'm on it."
 
 I put a quarter in the siren. Ten minutes later, I was on the scene. It was a normal office building, strangled on all sides by public sidewalks. I hopped over them and went inside.
 
-“Home Depot™ Presents the Police!®” I said, flashing my badge and my gun and a small picture of Ron Paul. “Nobody move unless you want to!” They didn't.
+"Home Depot™ Presents the Police!®" I said, flashing my badge and my gun and a small picture of Ron Paul. "Nobody move unless you want to!" They didn't.
 
-“Now, which one of you punks is going to pay me to investigate this crime?” No one spoke up.
+"Now, which one of you punks is going to pay me to investigate this crime?" No one spoke up.
 
-“Come on,” I said. “Don't you all understand that the protection of private property is the foundation of all personal liberty?”
+"Come on," I said. "Don't you all understand that the protection of private property is the foundation of all personal liberty?"
 
 It didn't seem like they did.
 
-“Seriously, guys. Without a strong economic motivator, I'm just going to stand here and not solve this case. Cash is fine, but I prefer being paid in gold bullion or autographed Penn Jillette posters.”
+"Seriously, guys. Without a strong economic motivator, I'm just going to stand here and not solve this case. Cash is fine, but I prefer being paid in gold bullion or autographed Penn Jillette posters."
 Nothing. These people were stonewalling me. It almost seemed like they didn't care that a fortune in computer money invented to buy drugs was missing.
 
 I figured I could wait them out. I lit several cigarettes indoors. A pregnant lady coughed, and I told her that secondhand smoke is a myth. Just then, a man in glasses made a break for it.
 
-“Subway™ Eat Fresh and Freeze, Scumbag!®” I yelled.
+"Subway™ Eat Fresh and Freeze, Scumbag!®" I yelled.
 
 Too late. He was already out the front door. I went after him.
 
-“Stop right there!” I yelled as I ran. He was faster than me because I always try to avoid stepping on public sidewalks. Our country needs a private-sidewalk voucher system, but, thanks to the incestuous interplay between our corrupt federal government and the public-sidewalk lobby, it will never happen.
+"Stop right there!" I yelled as I ran. He was faster than me because I always try to avoid stepping on public sidewalks. Our country needs a private-sidewalk voucher system, but, thanks to the incestuous interplay between our corrupt federal government and the public-sidewalk lobby, it will never happen.
 
-I was losing him. “Listen, I'll pay you to stop!” I yelled. “What would you consider an appropriate price point for stopping? I'll offer you a thirteenth of an ounce of gold and a gently worn 'Bob Barr '08' extra-large long-sleeved men's T-shirt!”
+I was losing him. "Listen, I'll pay you to stop!" I yelled. "What would you consider an appropriate price point for stopping? I'll offer you a thirteenth of an ounce of gold and a gently worn 'Bob Barr '08' extra-large long-sleeved men's T-shirt!"
 
 He turned. In his hand was a revolver that the Constitution said he had every right to own. He fired at me and missed. I pulled my own gun, put a quarter in it, and fired back. The bullet lodged in a U.S.P.S. mailbox less than a foot from his head. I shot the mailbox again, on purpose.
 
-“All right, all right!” the man yelled, throwing down his weapon. “I give up, cop! I confess: I took the bitcoins.”
+"All right, all right!" the man yelled, throwing down his weapon. "I give up, cop! I confess: I took the bitcoins."
 
-“Why'd you do it?” I asked, as I slapped a pair of Oikos™ Greek Yogurt Presents Handcuffs® on the guy.
+"Why'd you do it?" I asked, as I slapped a pair of Oikos™ Greek Yogurt Presents Handcuffs® on the guy.
 
-“Because I was afraid.”
+"Because I was afraid."
 
-“Afraid?”
+"Afraid?"
 
-“Afraid of an economic future free from the pernicious meddling of central bankers,” he said. “I'm a central banker.”
+"Afraid of an economic future free from the pernicious meddling of central bankers," he said. "I'm a central banker."
 
 I wanted to coldcock the guy. Years ago, a central banker killed my partner. Instead, I shook my head.
-“Let this be a message to all your central-banker friends out on the street,” I said. “No matter how many bitcoins you steal, you'll never take away the dream of an open society based on the principles of personal and economic freedom.”
+"Let this be a message to all your central-banker friends out on the street," I said. "No matter how many bitcoins you steal, you'll never take away the dream of an open society based on the principles of personal and economic freedom."
 
 He nodded, because he knew I was right. Then he swiped his credit card to pay me for arresting him.`,
 		`Greetings.👵🏿😴👙⛄️ My🐕 name is🈚️ Jebuiz Y'har. If my🐯 calculations🎸 are👮🏿 correct,🚁 you should🚦 be♈️💅💓🐈 receiving🎅🏾 this📱🔍 transmission◽️ in💑 the year💆🏼 2018 AD.👨‍👨‍👦🚶🏾 It amuses👯✨ me🐐🔠📎 that you💗👑💇🏼💈 used to🛅 calculate🚣🏻🈺⏰ your dates👒♥️ in👨🏿 relation🔘 to🕝 the life of🚷👌🏿 an ancient🎈 man.🛄 You🈺 see,📄🐤 we💼🍅⌚️ have🍙 a😑 slightly💲 different timescale.🐱💋💁🏻🔶 But😪 to🙉 make🔬 things🚳 simple,💁🏼 I am🎳 writing🏢☀️🐯📱 from📱 the🕙 year⚾️ 49,170🏇🏿💑🚣🏾👃🏿 AD.🏭🐬🏊🏽
@@ -152,11 +152,11 @@ However, rumors of how bad LUE used to be are not at all exaggerated in the leas
 
 But whatever else LUE is or was, "garbage" is not a good way to describe it. Aside from the stinking mounds of human depravity, it is one of the wittiest, most risque, and interesting boards I ever saw on GameFAQs.`,
 		`hi this is simba from the lion king and uh i want to tell you about my latest business it's simba's shit pit simba's shit pit ah do you live in the jungle and if you live in the jungle are you constantly looking for places to shit well you're in luck cause it's simba's shit pit i write off of root 80 simba shit pit ah are you an antelope ah who are when you're taking a shit a lion jumps out and bites your head off that happens to you all the time doesn't it that's why you have to go to simba shit pit and uh at simba's shit pit our slogan is simba shit pit we ain't lying`,
-		`went to a local Mexican restaurant that has $1 tacos for 'Taco Tuesday.' It's a Chipotle style line where you choose hard or soft taco, chicken or beef, and you can add up to three “toppings” from the following: lettuce, salsa, corn, rice and beans, sour cream, or spicy sour cream. I think there were a few others but they are of no use to this story.
+		`went to a local Mexican restaurant that has $1 tacos for 'Taco Tuesday.' It's a Chipotle style line where you choose hard or soft taco, chicken or beef, and you can add up to three "toppings" from the following: lettuce, salsa, corn, rice and beans, sour cream, or spicy sour cream. I think there were a few others but they are of no use to this story.
 
-So I walk up to the start of the line and she asks me what I want. I say: “Hi. I'll have six tacos. Three hard and three soft. Three with chicken, and three with beef, but not so that all the chicken or beef are on the same style taco. I'll have any three toppings between lettuce, salsa, rice and beans, sour cream and spicy sour cream such that salsa and any style of sour cream is on all of them and that no two tacos have the exact same contents.”
+So I walk up to the start of the line and she asks me what I want. I say: "Hi. I'll have six tacos. Three hard and three soft. Three with chicken, and three with beef, but not so that all the chicken or beef are on the same style taco. I'll have any three toppings between lettuce, salsa, rice and beans, sour cream and spicy sour cream such that salsa and any style of sour cream is on all of them and that no two tacos have the exact same contents."
 
-She looks at my face for a few seconds with a blank stare before saying, “Fuck this” and just walks to the back where the customer can't see, and then like 15 seconds later walks down the hallway and out the door and gets into her car. Then some guy comes out from the back, who I assume is the manager, with a concerned look on his face, apologizes and takes my order. Other employees were really confused.
+She looks at my face for a few seconds with a blank stare before saying, "Fuck this" and just walks to the back where the customer can't see, and then like 15 seconds later walks down the hallway and out the door and gets into her car. Then some guy comes out from the back, who I assume is the manager, with a concerned look on his face, apologizes and takes my order. Other employees were really confused.
 
 Tacos were okay.
 `,
