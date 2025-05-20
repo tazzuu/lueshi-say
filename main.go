@@ -144,6 +144,7 @@ My ass-pube-net problem was resolved by the way. My uncle had to drive me to the
 		`Dont exist foo!`,
 		`The cookies she didn't even want!`,
 		`You just lost The Game`,
+		`the gamefaqs spinoff luelinks "ETI"`,
 		`
 Rumor's of LUE's demise are greatly exaggerated. As of this moment, it has over 30,000 active posts, making it one of the largest boards on GameFAQs. The rumors are mostly spread by disaffected people who did not or could not sign up for LUE before it went "excLUEsive."
 
