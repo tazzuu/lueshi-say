@@ -177,16 +177,50 @@ func wrapLine(s string) string {
 	// interval int, sep rune
 	interval := 76 // two chars on each side for bubble
 	sep := '\n'    // break with newlines
+	charCount := 0
+	bubbleWidth := interval // 80
 	var buffer bytes.Buffer
 	before := interval - 1
 	last := len(s) - 1
 	for i, char := range s {
-		buffer.WriteRune(char)
-		if i%interval == before && i != last {
-			// buffer.WriteRune('|')
-			// buffer.WriteRune(' ')
-			buffer.WriteRune(sep)
+		// write the leading left edge of the bubble
+		//  this only triggers on the first char of the line for some reason idk
+		// TODO Fix this part
+		if charCount == 0 {
+			buffer.WriteRune('|')
+			buffer.WriteRune(' ')
 		}
+
+		// reset the counter at the end of the line
+		if charCount >= bubbleWidth {
+			charCount = 0
+		}
+
+		// if its an empty line then pad left
+		if char == '\n' {
+			buffer.WriteRune('|')
+		}
+
+		// write the character to the line
+		buffer.WriteRune(char)
+
+		// if we hit the text length, break for newline
+		if i%interval == before && i != last {
+
+			// pad the right side with whitespace
+			for charCount < bubbleWidth {
+				buffer.WriteRune(' ')
+				charCount++
+			}
+
+			// write the newline
+			buffer.WriteRune(' ')
+			buffer.WriteRune('|')
+			buffer.WriteRune(sep)
+			buffer.WriteRune('|')
+			buffer.WriteRune(' ')
+		}
+		charCount++
 	}
 	return buffer.String()
 }
@@ -222,8 +256,7 @@ func wrapEachLine(s string) string {
 func printBubble() {
 	phrase := getPhrase()
 	wrappedPhrase := wrapEachLine(phrase)
-	fmt.Println(`/------------------------------------------------------------------------------\`)
-	fmt.Println(`|                                                                              |`)
+	fmt.Println(`/-------------------------------------------------------------------------------\`)
 	fmt.Println(wrappedPhrase)
 	fmt.Println(`\------------------------------------------------------------------------------/`)
 	fmt.Println(`                           /`)
