@@ -11,6 +11,7 @@ build:
 GIT_TAG:=$(shell git describe --tags)
 build-all:
 	mkdir -p build ; \
+	docker run --rm -ti -v $(PWD):/lueshi-say --workdir /lueshi-say golang:1.24.3 bash -c ' \
 	for os in darwin linux windows; do \
 	for arch in amd64 arm64; do \
 	output="build/$(BIN)-v$(GIT_TAG)-$$os-$$arch" ; \
@@ -18,4 +19,5 @@ build-all:
 	echo "building: $$output" ; \
 	GOOS=$$os GOARCH=$$arch go build -o "$${output}" $(SRC) ; \
 	done ; \
-	done
+	done \
+	'
