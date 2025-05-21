@@ -22,10 +22,18 @@ build-all:
 	done \
 	'
 
+# Build and push 'latest' ;
+# make docker-build docker-push GIT_TAG=latest
+# NOTE: this only builds for the current platform arch, use buildx instead for multi-platform ; see docs listed
 DOCKER_TAG:=tazzuu/lueshi-say:$(GIT_TAG)
 docker-build:
-	docker build -t $(DOCKER_TAG) .
+	docker build --build-arg "Version=$(GIT_TAG)" -t $(DOCKER_TAG) .
 
-# docker push tazzuu/lueshi-say:latest
 docker-push:
 	docker push $(DOCKER_TAG)
+
+# make multi-arch Docker build;
+# make sure to do ALL the commands listed here in order https://cloudolife.com/2022/03/05/Infrastructure-as-Code-IaC/Container/Docker/Docker-buildx-support-multiple-architectures-images/
+# make docker-buildx-push GIT_TAG=latest
+docker-buildx-push:
+	docker buildx build --platform linux/arm/v7,linux/arm64,linux/amd64 --push --build-arg "Version=$(GIT_TAG)" --tag $(DOCKER_TAG) .

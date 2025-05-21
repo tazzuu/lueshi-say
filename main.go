@@ -7,7 +7,18 @@ import (
 	"math/rand"
 	"regexp"
 	"strings"
+	"flag"
+	"os"
 )
+
+// overwrite this at build time ;
+// -ldflags="-X 'main.Version=someversion'"
+var Version = "latest"
+
+func PrintVersionAndQuit() {
+		fmt.Println(Version)
+		os.Exit(0)
+	}
 
 func getPhrase() string {
 	// pick a phrase from the list
@@ -252,7 +263,31 @@ func makeLUESHI() string {
 	return finalLUEshi
 }
 
-func main() {
+func printLUEshi() {
 	lueshiStr := makeLUESHI()
 	fmt.Println(lueshiStr)
+}
+
+func runLUEshiServer (port string) {
+	fmt.Printf("running LUEshi server on port %s\n", port)
+}
+
+func main() {
+	printVersion := flag.Bool("v", false, "print version information")
+	runServer := flag.Bool("s", false, "run in server mode")
+	serverPort := flag.String("p", "4242", "port to use in server mode")
+	flag.Parse()
+	// cliArgs := flag.Args() // all positional args passed
+
+	if *printVersion {
+		PrintVersionAndQuit()
+	}
+
+	if *runServer {
+		runLUEshiServer(*serverPort)
+	} else {
+		// default action if no args are passed
+		printLUEshi()
+	}
+
 }
