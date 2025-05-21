@@ -2,11 +2,15 @@
 
 Like `cowsay` but with our favorite Italian Plumber and his trusty dinosaur.
 
-<img width="760" alt="Image" src="https://github.com/user-attachments/assets/3c274cb8-b756-4234-bf47-c3ebc4ae2c30" />
+Run `lueshi-say` to hear LUEshi recite famous lore and memes! Run the program repeatedly to hear what else he has to say :)
+
+# Examples
+
+<img width="1028" alt="Image" src="https://github.com/user-attachments/assets/ee65504f-9b5a-4777-8820-9c98836a5320" />
 
 # Usage
 
-Build from source with Go 1.23+
+Build from source with [Go 1.23+](https://go.dev/doc/install)
 
 ```bash
 make build
