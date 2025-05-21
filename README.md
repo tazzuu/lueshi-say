@@ -1,6 +1,6 @@
 # lueshi-say
 
-Like `cowsay` but with our favorite Italian Plumber and his trusty dinosaur.
+Like [`cowsay`](https://en.wikipedia.org/wiki/Cowsay) but with our favorite Italian Plumber and his trusty dinosaur.
 
 Run `lueshi-say` to hear LUEshi recite famous lore and memes! Run the program repeatedly to hear what else he has to say :)
 
