@@ -19,3 +19,9 @@ make build
 ```
 
 Or download and run one of the pre-built executable binaries: https://github.com/tazzuu/lueshi-say/releases
+
+Or run it from Docker
+
+```bash
+docker run --rm tazzuu/lueshi-say:0.2
+```

@@ -21,3 +21,11 @@ build-all:
 	done ; \
 	done \
 	'
+
+DOCKER_TAG:=tazzuu/lueshi-say:$(GIT_TAG)
+docker-build:
+	docker build -t $(DOCKER_TAG) .
+
+# docker push tazzuu/lueshi-say:latest
+docker-push:
+	docker push $(DOCKER_TAG)
