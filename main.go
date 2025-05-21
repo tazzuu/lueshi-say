@@ -1,11 +1,12 @@
 package main
 
 import (
-	"bytes"
 	"encoding/base64"
 	"fmt"
 	"log"
 	"math/rand"
+	"regexp"
+	"strings"
 )
 
 func getPhrase() string {
@@ -98,8 +99,7 @@ He nodded, because he knew I was right. Then he swiped his credit card to pay me
 		`Greetings. My name is Jebuiz y'har. If my calculations are correct, you should be receiving this transmission in the year 2013 AD. It amuses me that you used to calculate your dates in relation to the life of an ancient man. You see, we have a slightly different timescale. But to make things simple, I am writing from the year 49,170 AD.
 `,
 		`Do a barrel roll!`,
-		`
-Mechanic: Somebody set up us the bomb.
+		`Mechanic: Somebody set up us the bomb.
 
 Operator: Main screen turn on.
 
@@ -111,8 +111,7 @@ Captain: Move 'ZIG'.
 
 Captain: For great justice.
 `,
-		`
-Here I was minding my own business fapping, headphones on... when I think I hear a noise. I take the headphones off, turn the monitor off, and already have my clothes off so I don't know what to do. I could try putting clothes back on, but she might open my door while I'm doing that and I'd get caught for sure.
+		`Here I was minding my own business fapping, headphones on... when I think I hear a noise. I take the headphones off, turn the monitor off, and already have my clothes off so I don't know what to do. I could try putting clothes back on, but she might open my door while I'm doing that and I'd get caught for sure.
 
 I hear the huge beast coming, my fucking mom; fat, insane, bitchy, deep hoarse voice. I don't know what the fuck to do so I hope to god that she doesn't come in.
 
@@ -145,8 +144,7 @@ My ass-pube-net problem was resolved by the way. My uncle had to drive me to the
 		`The cookies she didn't even want!`,
 		`You just lost The Game`,
 		`the gamefaqs spinoff luelinks "ETI"`,
-		`
-Rumor's of LUE's demise are greatly exaggerated. As of this moment, it has over 30,000 active posts, making it one of the largest boards on GameFAQs. The rumors are mostly spread by disaffected people who did not or could not sign up for LUE before it went "excLUEsive."
+		`Rumor's of LUE's demise are greatly exaggerated. As of this moment, it has over 30,000 active posts, making it one of the largest boards on GameFAQs. The rumors are mostly spread by disaffected people who did not or could not sign up for LUE before it went "excLUEsive."
 
 However, rumors of how bad LUE used to be are not at all exaggerated in the least. It really was that bad. Even still it flirts with the obscene. I'm a member and I still drop by every now and then, but for the most part I'm done with GameFAQs.
 
@@ -169,100 +167,6 @@ Tacos were okay.
 	return phrases[rand.Intn(len(phrases))]
 }
 
-func wrapLine(s string) string {
-	// function to wrap a single line so it fits in the text bubble
-
-	// TODO: make this work better so the bubble borders show up and such
-
-	// interval int, sep rune
-	interval := 76 // two chars on each side for bubble
-	sep := '\n'    // break with newlines
-	charCount := 0
-	bubbleWidth := interval // 80
-	var buffer bytes.Buffer
-	before := interval - 1
-	last := len(s) - 1
-	for i, char := range s {
-		// write the leading left edge of the bubble
-		//  this only triggers on the first char of the line for some reason idk
-		// TODO Fix this part
-		if charCount == 0 {
-			buffer.WriteRune('|')
-			buffer.WriteRune(' ')
-		}
-
-		// reset the counter at the end of the line
-		if charCount >= bubbleWidth {
-			charCount = 0
-		}
-
-		// if its an empty line then pad left
-		if char == '\n' {
-			buffer.WriteRune('|')
-		}
-
-		// write the character to the line
-		buffer.WriteRune(char)
-
-		// if we hit the text length, break for newline
-		if i%interval == before && i != last {
-
-			// pad the right side with whitespace
-			for charCount < bubbleWidth {
-				buffer.WriteRune(' ')
-				charCount++
-			}
-
-			// write the newline
-			buffer.WriteRune(' ')
-			buffer.WriteRune('|')
-			buffer.WriteRune(sep)
-			buffer.WriteRune('|')
-			buffer.WriteRune(' ')
-		}
-		charCount++
-	}
-	return buffer.String()
-}
-
-func wrapEachLine(s string) string {
-	// function to wrap every line in the text phrase
-
-	var allLines bytes.Buffer
-	var thisLine bytes.Buffer
-
-	for _, char := range s {
-		if char != '\n' {
-			// collect characters until we hit a newline
-			thisLine.WriteRune(char)
-		} else {
-			// once we hit a newline then we need to wrap the entire line that we collected
-			wrappedLine := wrapLine(thisLine.String())
-			allLines.WriteString(wrappedLine)
-			allLines.WriteRune('\n') // preserve line endings
-			thisLine.Reset()
-		}
-	}
-
-	// Wrap final line if not followed by newline
-	if thisLine.Len() > 0 {
-		wrapped := wrapLine(thisLine.String())
-		allLines.WriteString(wrapped)
-	}
-
-	return allLines.String()
-}
-
-func printBubble() {
-	phrase := getPhrase()
-	wrappedPhrase := wrapEachLine(phrase)
-	fmt.Println(`/-------------------------------------------------------------------------------\`)
-	fmt.Println(wrappedPhrase)
-	fmt.Println(`\------------------------------------------------------------------------------/`)
-	fmt.Println(`                           /`)
-	fmt.Println(`                          /`)
-}
-
 func printLUESHI() {
 	b64 := `ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBfXyAgIF9fCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC/igJlgwrdgXCwtLS1gIOKAngogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIC98LC3igJhgwq/Cr2BcKG8pX1wsLS0tLSwsLF8KICAgICAgICAgICAgICAgICAg4oCefirCr8KvYOKAnVwsICAgICAgICAgICAgIF/igJ5fICAgICAgICAgICAgKCBgXChvKSwsXy9gIMKvIMK3IG8gwrcgwrcgwrdvIGAtLAogICAgICAgICAgICAgICAgIC8gICAgICAo4oCcLCB+OyrigJnCr8Kvwq/igJ1cLCAoXywtLSBgYOKAnX4sICAgICBcIMK3IMK3IMK3IMK3IMK3IMK3IMK3IMK3IMK3IMK3IMK3IMK3IMK3IMK3IGBcCiAgICAgICAgICAgICAgICB8ICAgICAgLC9gLC0qfjt+ICAt4oCeLC8gKOKAmGAgYGApLyAgLCAgICBcICwvYCDCtyDCtyDCt1/igJ7igJ4swrcgwrcgwrcgwrcgwrcgwrcgwrcgwrcgwrcgwrcgXAogICAgICAgICAgICAgICAgfCAgICAgLyAsL2AsLS1cIFzigJlgY1wsLS0t4oCeMSDigLnigJlgLS0oXyAsLyAvIMK3IMK3IMK3LC9gICAgICApwrcgwrcgwrcgwrcgwrcgwrcgwrcgwrcgwrcgwrcgfAogICAgICAgICAgICAgICAgICkgICDCteKAmWAgIFwgKGMpIGDCryAgICAgIGApLCAgICwtfmAgICBcIMK3IMK3IMK3fCAgICAgJ+KAnVwsIMK3IMK3IMK3IMK3IMK3IMK3IMK3IMK3IMK3IMK3LwogICAgICAgICAgICAgICAvYCAsL19+LSwgIGA7O2DigJ4t4oCeLF9fLCAvLCBgYGAvICAgICAgICBgXMK3IMK3XCAgICAgICAgIGAqLSAsXyDCtyDCtyDCtyDCtyDCtyDCtywt4oCYCiAgICAgICAgICAgICAgIGAtL8KoOy0tO37igJkgYOKAnSotPSw9LV9g4oCdICwpICwvYCAgICAgICAgICBg4oC6IMK3IGBcLCAgICAgICAgICAgICDCr+KAnX4tLS0sLS1gCiAgIOKAnuKAniAgICAgICAgIF9fXCwgICDigJgsICAgICAgICAgYFzigJ5fLC8gLC87LTtfICAgICAgICAgIC9gIGAgfCAvICAgICAgICAgICAgIOKAni3igJwKICggICBgXCwtfipgwq8gICAgICBgwq9gIGB+LS1+Kn4tLS1+Oy9gLC1+KmBgYCotLSwgICAgICAvIMK3ICAgfCAgICAgICAgICwtLS1+KuKAnWAKICBcICAgICDigJ0qfi0sLOKAnuKAnl9fX1/igJ7igJ4sIC1+4oCdYMKvwq/Cr8KvLyAvICAgICAgICAgICDigJhcLCkgLCAgLyDCtyDCt3wgICAgICAgICBcCiAgIGDigJ3igJl+LSzigJ7igJ7igJ7igJ7igJ7igJ4sLH7igJhgYCAgICggICAgICAgLCBfX3wgfCAgICAgICAgLCBgXOKAnuKAni8gLC9gIC8gICAgICAgICB8CiAgICAgICAgICAgICAgICAgICAgICAgICBcYOKAneKAneKAnWAgICAgICBg4oCZfjstLOKAniwsXynigJ1gXy3igJggwrcgwrcgLyAgICAgICAgICB8CiAgICAgICAgICAoYCrigJ0tLOKAniwt4oCdwq/Cr+KAnWAtO+KAniAgICAgICAgICAgICwgLydgYCwtfuKAnWDCr8K3IMK3IMK3IMK3LyAgICAgICAgICB8CiAgICAgICAgICAgfCDCtyDCtygsOy09PT0t4oCeLCBgXCwgICAgICAsLWB8ICAgIC8gwrcgwrcgwrcgfCDCtywvYCAgICAgICAgICAgfAogICAgICAgICAgICBcIMK3IMK3XCwgICAgICAgICBcXCAgIGBcICAgKSAgLyAgIC8gwrcgwrdcIMK3IMK3YH4sXyAgICAgICAgIC8KICAgICAgICAgICAgIFxcLF9gfiAsX+KAniwgLSpcXCwgYC8sL+KAni9gICwvIMK3IMK3IMK3YOKAmTstIOKAnl8gwrcgwq8tLCAgICAgICAvLAogICAgICAgICAgICAgIGBcLCxg4oCdfCDCtyDCt2AtLOKAnl/igJ4pKeKAmWAiYCAgLC9gX+KAnix+KuKAmWAgICAgICggICAsICxgKSAsLTsgYOKAmVwsCiAgICAgICAgICAgICAgICAgYCotXCDCtyDCtyDCtyBgfi0tLS1+KmAgLyAgICAgICAgICAgICAgICDigJzigJ1+4oCdYCAgL2AgKCBfIMK3KQogICAgICAgICAgICAgICwgwqwtLC0tXCDCtyDCtyDCtyDCtyDCtyDCtyDCtyDCtyAvICAgICAgICAgICAgICAgICwsLeKAnGAgICAg4oCZLeKAniwt4oCYCiAgICAgICAgICAgICAgfCB8wrcgwrcqwrdcIMK3IMK3IMK3IMK3IMK3IMK3IMK3Xy8g4oCeX19fX+KAnuKAnuKAnuKAniwtLS1+KmAKICAgICAgICAgICAgIC8gLyDCtyDCtyDCtyBgfi3igJ7igJ7igJ7igJ7igJ4sIDs7YCwsIC0tYAogICAgICAgICAgICB8IHwgwrcgwrcgwrcgwrd8wq8gwrcgLC8gwq8KICAgICAgICAgICAgIFwsXCxfLOKAniAvLS0tfmAK`
 	data, err := base64.StdEncoding.DecodeString(b64)
@@ -273,7 +177,73 @@ func printLUESHI() {
 	fmt.Println(string(data))
 }
 
+func printBubble2() {
+	// get a phrase
+	phrase := getPhrase()
+
+	// hold a list of lines here
+	var allLines []string
+	var currentLine []rune
+	var charCount int
+
+	// split the phrase into lines of 76 char each
+	interval := 76
+
+	for _, char := range phrase {
+		// if its a newline, reset
+		if char == '\n' {
+			// append the empty line because we are gonna join on newline later anyway
+			allLines = append(allLines, string(currentLine))
+			currentLine = nil
+			charCount = 0
+		} else {
+			// otherwise
+			// add char to current line
+			currentLine = append(currentLine, char)
+			charCount++
+		}
+
+		// reset the line if we're at the length limit
+		if charCount == interval {
+			allLines = append(allLines, string(currentLine))
+			currentLine = nil
+			charCount = 0
+		}
+	}
+
+	// add the last line contents
+	if len(currentLine) > 0 {
+		allLines = append(allLines, string(currentLine))
+	}
+
+	mergedLines := strings.Join(allLines, "\n")
+
+	// left pad border
+	var re = regexp.MustCompile(`(?m)^`)
+	leftBorderLines := re.ReplaceAllString(mergedLines, `| `)
+	// fmt.Println(leftBorderLines)
+
+	// right pad border
+	re = regexp.MustCompile(`(?m)^.*$`)
+	rightBorderLines := re.ReplaceAllStringFunc(leftBorderLines, func(line string) string {
+		runes := []rune(line) // account for unicode
+		if len(runes) < interval+3 {
+			// pad with spaces up to 78 chars, then append "|"
+			padding := strings.Repeat(" ", interval+3-len(runes))
+			return line + padding + " |"
+		}
+		// leave longer or equal lines alone
+		return line
+	})
+
+	fmt.Println(`/-------------------------------------------------------------------------------\`)
+	fmt.Println(rightBorderLines)
+	fmt.Println(`\------------------------------------------------------------------------------/`)
+	fmt.Println(`                           /`)
+	fmt.Println(`                          /`)
+}
+
 func main() {
-	printBubble()
+	printBubble2()
 	printLUESHI()
 }
