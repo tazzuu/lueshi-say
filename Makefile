@@ -17,7 +17,7 @@ build-all:
 	output="build/$(BIN)-v$(GIT_TAG)-$$os-$$arch" ; \
 	if [ "$${os}" == "windows" ]; then output="$${output}.exe"; fi ; \
 	echo "building: $$output" ; \
-	GOOS=$$os GOARCH=$$arch go build -o "$${output}" $(SRC) ; \
+	CGO_ENABLED=0 GOOS=$$os GOARCH=$$arch go build -o "$${output}" $(SRC) ; \
 	done ; \
 	done \
 	'

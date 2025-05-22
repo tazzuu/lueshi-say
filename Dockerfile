@@ -7,6 +7,7 @@ FROM golang:1.24.3-alpine AS build
 ARG Version=latest
 
 COPY ./main.go /main.go
+ENV CGO_ENABLED=0
 RUN go build -ldflags="-X 'main.Version=$Version'" -o /lueshi-say /main.go
 
 # DEPLOY
