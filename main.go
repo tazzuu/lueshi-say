@@ -10,6 +10,9 @@ import (
 	"flag"
 	"os"
 	"runtime"
+	"errors"
+	"net/http"
+	"io"
 )
 
 // overwrite this at build time ;
@@ -274,8 +277,28 @@ func printLUEshi() {
 	fmt.Println(lueshiStr)
 }
 
+func getRoot(w http.ResponseWriter, r *http.Request) {
+	fmt.Printf("got / request\n")
+	lueshiStr := makeLUESHI()
+	io.WriteString(w, lueshiStr)
+}
+
 func runLUEshiServer (port string) {
+	// curl http://localhost:4242
 	fmt.Printf("running LUEshi server on port %s\n", port)
+
+	mux := http.NewServeMux()
+	mux.HandleFunc("/", getRoot)
+	// add more endpoints here
+
+	err := http.ListenAndServe(":" + port, mux)
+
+	if errors.Is(err, http.ErrServerClosed) {
+		fmt.Printf("server closed\n")
+	} else if err != nil {
+		fmt.Printf("error starting server: %s\n", err)
+		os.Exit(1)
+	}
 }
 
 func main() {
