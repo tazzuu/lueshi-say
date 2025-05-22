@@ -9,6 +9,7 @@ import (
 	"strings"
 	"flag"
 	"os"
+	"runtime"
 )
 
 // overwrite this at build time ;
@@ -19,6 +20,11 @@ func PrintVersionAndQuit() {
 		fmt.Println(Version)
 		os.Exit(0)
 	}
+
+func Debug() {
+	fmt.Printf("%s %s %s %d\n", runtime.Version(), runtime.GOOS, runtime.GOARCH, runtime.NumCPU())
+	os.Exit(0)
+}
 
 func getPhrase() string {
 	// pick a phrase from the list
@@ -274,6 +280,7 @@ func runLUEshiServer (port string) {
 
 func main() {
 	printVersion := flag.Bool("v", false, "print version information")
+	debug := flag.Bool("debug", false, "run debug")
 	runServer := flag.Bool("s", false, "run in server mode")
 	serverPort := flag.String("p", "4242", "port to use in server mode")
 	flag.Parse()
@@ -281,6 +288,10 @@ func main() {
 
 	if *printVersion {
 		PrintVersionAndQuit()
+	}
+
+	if *debug {
+		Debug()
 	}
 
 	if *runServer {
