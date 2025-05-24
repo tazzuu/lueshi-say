@@ -62,3 +62,19 @@ Or run it from Docker
 ```bash
 docker run --rm tazzuu/lueshi-say:latest
 ```
+
+# Credits
+
+Thanks to Patamon for the original version of the LUEshi ASCII art
+
+- https://web.archive.org/web/20101023064231/http://gamefaqsarchive.com/index.php?pg=385
+
+More ASCII arts are available here
+
+- https://gfascii.art/
+
+A history of LUEshi is here 
+
+- https://web.archive.org/web/20101202145806/http://wikifaqs.net/index.php?title=LUEshi
+
+Copy pasta taken from the LUE and LUElinks community lore archives
