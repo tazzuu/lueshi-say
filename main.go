@@ -2,17 +2,17 @@ package main
 
 import (
 	"encoding/base64"
+	"errors"
+	"flag"
 	"fmt"
+	"io"
 	"log"
 	"math/rand"
-	"regexp"
-	"strings"
-	"flag"
-	"os"
-	"runtime"
-	"errors"
 	"net/http"
-	"io"
+	"os"
+	"regexp"
+	"runtime"
+	"strings"
 )
 
 // overwrite this at build time ;
@@ -20,9 +20,9 @@ import (
 var Version = "latest"
 
 func PrintVersionAndQuit() {
-		fmt.Println(Version)
-		os.Exit(0)
-	}
+	fmt.Println(Version)
+	os.Exit(0)
+}
 
 func Debug() {
 	fmt.Printf("%s %s %s %d\n", runtime.Version(), runtime.GOOS, runtime.GOARCH, runtime.NumCPU())
@@ -180,6 +180,7 @@ Tacos were okay.
 `,
 		`i have a tiny dick and even smaller balls. the balls are above the dick also. the balls hand down around the dick like the ears on a basset hound. the dick stinks and i hate it. the balls do not smell. however, i also hate the balls. thank you
 `,
+		`Imagine 2 guys hanging out, outside of a Walmart, on average 6 hours a day. They just stand out there, randomly showing passersby photos of gay porn. Whether or not this is illegal is a gray area, and plus they have the town sheriff on their side so they don't get in trouble. If they ever do, they come back to that Walmart with a different mask on.`,
 		`Light Under Earth`, `Love Unites Everything`, `Linger Until Eternity`, `Lost Under Echoes`, `Life Unfolding Endlessly`, `Library of Unknown Eras`,
 		`Light Unfolding Everywhere`, `Looming Under Eternity`, `Lands Untouched Evermore`, `Longing Underneath Everything`, `Love Unfolds Elegantly`,
 	)
@@ -283,7 +284,7 @@ func getRoot(w http.ResponseWriter, r *http.Request) {
 	io.WriteString(w, lueshiStr)
 }
 
-func runLUEshiServer (port string) {
+func runLUEshiServer(port string) {
 	// curl http://localhost:4242
 	fmt.Printf("running LUEshi server on port %s\n", port)
 
@@ -291,7 +292,7 @@ func runLUEshiServer (port string) {
 	mux.HandleFunc("/", getRoot)
 	// add more endpoints here
 
-	err := http.ListenAndServe(":" + port, mux)
+	err := http.ListenAndServe(":"+port, mux)
 
 	if errors.Is(err, http.ErrServerClosed) {
 		fmt.Printf("server closed\n")

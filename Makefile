@@ -4,7 +4,7 @@ format:
 SRC:=main.go
 BIN:=lueshi-say
 build:
-	go build -o ./$(BIN) ./$(SRC)
+	go build -trimpath -o ./$(BIN) ./$(SRC)
 .PHONY:build
 
 # need at least 1 tag for this to work
@@ -17,7 +17,7 @@ build-all:
 	output="build/$(BIN)-v$(GIT_TAG)-$$os-$$arch" ; \
 	if [ "$${os}" == "windows" ]; then output="$${output}.exe"; fi ; \
 	echo "building: $$output" ; \
-	CGO_ENABLED=0 GOOS=$$os GOARCH=$$arch go build -o "$${output}" $(SRC) ; \
+	CGO_ENABLED=0 GOOS=$$os GOARCH=$$arch go build -trimpath -o "$${output}" $(SRC) ; \
 	done ; \
 	done \
 	'
