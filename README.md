@@ -18,7 +18,7 @@ Run the program from the command line like this
 ./lueshi-say
 ```
 
-LUEshi will output a random message from the LUElinks lore archives.
+LUEshi will output a random message from the LUElinks lore [archives](https://archive.org/details/eoti_wiki).
 
 ## Server Mode
 
