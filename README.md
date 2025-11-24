@@ -63,6 +63,20 @@ Or run it from Docker
 docker run --rm tazzuu/lueshi-say:latest
 ```
 
+# Run local web interface
+
+You can use the included sample web server configuration to view the app in your local web browser.
+
+Start with Docker compose
+
+```bash
+docker compose up -d
+```
+
+Access in your web browser at [http://localhost:8080/](http://localhost:8080/)
+
+<img width="1034" height="1034" alt="Image" src="https://github.com/user-attachments/assets/48234de0-755e-4cd0-ab6d-0be3f9eddc7b" />
+
 # Credits
 
 Thanks to Patamon for the original version of the LUEshi ASCII art
@@ -73,7 +87,7 @@ More ASCII arts are available here
 
 - https://gfascii.art/
 
-A history of LUEshi is here 
+A history of LUEshi is here
 
 - https://web.archive.org/web/20101202145806/http://wikifaqs.net/index.php?title=LUEshi
 
