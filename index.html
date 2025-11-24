@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --max-width: 90ch; /* keeps roughly 80-col output without running long */
+      --bg: #0f172a;
+      --fg: #e2e8f0;
+      --panel: #111827;
+      --border: #1f2937;
+      --accent: #38bdf8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 20% 20%, rgba(56, 189, 248, 0.15), transparent 40%),
+                  radial-gradient(circle at 80% 30%, rgba(99, 102, 241, 0.18), transparent 45%),
+                  var(--bg);
+      color: var(--fg);
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+      padding: 2rem;
+    }
+    .panel {
+      width: min(var(--max-width), 100%);
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+      padding: 1.25rem 1.5rem;
+    }
+    .panel header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+      color: var(--accent);
+    }
+    #message {
+      margin: 0;
+      white-space: pre;
+      overflow-wrap: anywhere; /* prevents overflow on long words */
+      max-width: 100%;
+      font-size: 0.92rem;
+      line-height: 1.35;
+    }
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <header>
+      <span>LUEshi output</span>
+      <span id="status">Loading…</span>
+    </header>
+    <pre id="message">Loading...</pre>
+  </div>
+
+  <script>
+    async function loadMessage() {
+      const messageEl = document.getElementById('message');
+      const statusEl = document.getElementById('status');
+
+      try {
+        const res = await fetch('/lueshi');
+        if (!res.ok) throw new Error(res.status + ' ' + res.statusText);
+        const text = await res.text();
+        messageEl.textContent = text;
+        statusEl.textContent = 'Loaded';
+      } catch (err) {
+        messageEl.textContent = 'Error: ' + err.message;
+        statusEl.textContent = 'Error';
+      }
+    }
+
+    loadMessage();
+  </script>
+</body>
+</html>
