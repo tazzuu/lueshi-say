@@ -22,6 +22,7 @@ After=network.target
 [Service]
 User=www-data
 Group=www-data
+# MAKE SURE THIS PATH MATCHES
 ExecStart=/usr/local/bin/lueshi-say -s -p 4242
 Restart=on-failure
 RestartSec=5
