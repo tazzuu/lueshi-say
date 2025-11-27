@@ -1,0 +1,30 @@
+# place at location:
+# /etc/systemd/system/lueshi-say.service
+
+# reboot systemd
+# sudo systemctl daemon-reload
+
+# enable for boot
+# sudo systemctl enable lueshi-say.service
+
+# start now
+# sudo systemctl start lueshi-say.service
+
+# check
+# systemctl status lueshi-say.service
+# curl localhost:4242
+# ps aux
+
+[Unit]
+Description=Lueshi Say service
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+ExecStart=/usr/local/bin/lueshi-say -s -p 4242
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
