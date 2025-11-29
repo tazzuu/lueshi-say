@@ -292,6 +292,13 @@ Now since this is the only thin you can understand with your feeble American min
 	`Look here steakhead, I didn't ask for your 2 bit opinion of what was easier or harder and I am not complaining, (Believe me you'd know it if I was complaining) I asked a simple question. I didn't ask for a lecture on how you or anyone else does things.`,
 	`Here's a sad fact: I'm going to a better university than you ever could hope to go to, I'm making more money now in a crappy summer internship than you will make salaried, and the probability is extremely high that my IQ is significantly higher than yours.`,
 	`i decided in middle school that all that religion crap wasnt for me. it just wasnt based on logic and im a logical person. it was a hgue step becuase my parents make me go to church and it was very stiffling to my personal being. im like the only one that made that decision at that age, being that im so logical.`,
+	`
+	lmao just lmao if your not in souljacord
+
+	ib4 websighters have a melty 🤣
+
+	Sorry, this post has been removed by the moderators of r/luelinks.
+`,
 	`Light Under Earth`, `Love Unites Everything`, `Linger Until Eternity`, `Lost Under Echoes`, `Life Unfolding Endlessly`, `Library of Unknown Eras`,
 	`Light Unfolding Everywhere`, `Looming Under Eternity`, `Lands Untouched Evermore`, `Longing Underneath Everything`, `Love Unfolds Elegantly`,
 }
