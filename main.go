@@ -32,7 +32,18 @@ func Debug() {
 // define these at the package level
 var phrases = []string{
 	`Coming in on a bad note. Don't know ya and don't know if I care to given who ya sight as a source. Name's Saley, the GodKing. I've been accused of being a bit of a peacekeeper and ring leader of our little rag tag group. Ninja is a trusted second, and Roman is my official go to boy on vibes. Just as a fair warning, don't bring that name up again. You won't like what you get. That being said, strike 1, and welcome to the group.`,
+`Me and my friends have a secret language we made up using GC games and features. We just sat around bored one day cause we wanted to talk about hot girls without our parents hearing, so we came up with it.
 
+For example:
+
+That's awesome = That's cubular
+What's up = Wavebird
+She's hot = She's Samus
+Got any cigarettes? = Got any cubesticks
+Did you do her? = Did you insert the memory card?
+Look at her butt = Check out the cube handle
+Mom's in the room = Peach is present
+`,
 	`Furious about an incident at work yesterday.
 
 everyone gets out, group goes to the restroom
